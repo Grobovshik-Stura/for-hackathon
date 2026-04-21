@@ -138,35 +138,4 @@ document.addEventListener('click', (e) => {
   }
 });
 
-export function initMapSafe() {
-  const mapContainer = document.getElementById('yandex-map');
 
-  if (!mapContainer) return;
-
-  // если API не загрузился — не ломаем сайт
-  if (typeof ymaps === 'undefined') {
-    console.warn('Yandex Maps не загрузился');
-    mapContainer.innerHTML = '<p style="padding:20px">Карта недоступна</p>';
-    return;
-  }
-
-  ymaps.ready(() => {
-    try {
-      const map = new ymaps.Map('yandex-map', {
-        center: [43.238949, 76.889709],
-        zoom: 12
-      });
-
-      const placemark = new ymaps.Placemark(
-        [43.238949, 76.889709],
-        { hintContent: 'Вы здесь' }
-      );
-
-      map.geoObjects.add(placemark);
-
-    } catch (err) {
-      console.error('Ошибка карты:', err);
-      mapContainer.innerHTML = '<p style="padding:20px">Ошибка загрузки карты</p>';
-    }
-  });
-}
