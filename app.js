@@ -96,9 +96,3 @@ document.querySelectorAll('.module-card').forEach(card => {
   });
 });
 
-import { initMap, initFullMap } from './map.js';
-
-document.addEventListener('DOMContentLoaded', () => {
-  initMap();
-  initFullMap();
-});
