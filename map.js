@@ -87,7 +87,11 @@ function setupGeolocation(map, btnId) {
 }
 
 export const initMap = () => {
-  console.log('initMap called, waiting for ymaps...');
+  if (typeof ymaps === 'undefined') {
+    console.warn('Yandex Maps не загрузился');
+    return;
+  }
+
   ymaps.ready(() => {
     console.log('ymaps ready for preview map');
     const mapContainer = document.getElementById('yandex-map');
@@ -108,7 +112,11 @@ export const initMap = () => {
 };
 
 export const initFullMap = () => {
-  console.log('initFullMap called');
+  if (typeof ymaps === 'undefined') {
+    console.warn('Yandex Maps не загрузился');
+    return;
+  }
+
   ymaps.ready(() => {
     console.log('ymaps ready for full map');
     const mapContainer = document.getElementById('yandex-map-full');
@@ -137,5 +145,4 @@ document.addEventListener('click', (e) => {
     window.open(`https://yandex.ru/maps/?rtext=~${coords}&rtt=auto`, '_blank');
   }
 });
-
 
