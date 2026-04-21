@@ -81,3 +81,24 @@ const observer2 = new MutationObserver(() => {
 });
 observer2.observe(profileModal, { attributes: true, attributeFilter: ['style'] });
 
+document.querySelectorAll('.module-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const lessonId = parseInt(card.dataset.lesson);
+
+    // открыть вкладку обучения
+    document.querySelector('[data-section="learning"]').click();
+
+    // выбрать урок
+    window.currentLesson = lessonId;
+
+    // перерисовать
+    renderLesson();
+  });
+});
+
+import { initMap, initFullMap } from './map.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+  initMap();
+  initFullMap();
+});
