@@ -99,7 +99,7 @@ h2 { font-size: 1.5rem; margin-bottom: 16px; }
   background: var(--deep-green);
   border-radius: 30px;
   display: flex;
-  align-items: center;
+  align-items: right;
   justify-content: center;
   color: white;
   font-weight: 500;
