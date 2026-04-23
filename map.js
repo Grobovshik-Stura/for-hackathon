@@ -129,7 +129,7 @@ export const initFullMap = () => {
       zoom: 12,
       controls: []
     });
-    fullMapInstance = map;
+    window.fullMapInstance = map;
     console.log('Full map created');
     renderPoints(map, 'all', almatyPoints);
     setupFilters(map, almatyPoints, 'mapFilters');
